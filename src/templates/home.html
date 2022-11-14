@@ -1,0 +1,11 @@
+{% extends './layout.html' %}
+
+{% block title %}Login{% endblock %}
+
+
+{% block bady %}
+<main class="text-center">
+    <h1>Welcome {{ current_user.firstname }} {{ current_user.lastname }}</h1>  
+    <a class="btn btn-secondary" href="{{ url_for('logout') }}">Logout</a>
+</main>
+{% endblock %}
