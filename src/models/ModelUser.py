@@ -8,8 +8,8 @@ class ModelUser():
         try:
             cursor = db.connection
             cur = cursor.cursor()
-            sql = "SELECT id, firstname, lastname, email, password FROM `user` WHERE email = '{}'".format(user.email) 
-            cur.execute(sql)
+            sql = "SELECT id, firstname, lastname, email, password FROM `user` WHERE email = %s" 
+            cur.execute(sql,(user.email,))
             data = cur.fetchone()
             print(data)
             if data != None:
@@ -24,8 +24,8 @@ class ModelUser():
         try:
             cursor = db.connection
             cur = cursor.cursor()
-            sql = "SELECT id, firstname, lastname, email, password FROM `user` WHERE id = '{}'".format(id) 
-            cur.execute(sql)
+            sql = "SELECT id, firstname, lastname, email, password FROM `user` WHERE id = %s" 
+            cur.execute(sql,(id,))
             data = cur.fetchone()
             print(data)
             if data != None:
